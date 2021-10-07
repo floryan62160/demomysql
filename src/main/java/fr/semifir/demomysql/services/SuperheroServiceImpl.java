@@ -15,7 +15,7 @@ public class SuperheroServiceImpl implements SuperheroService{
 
     @Override
     public List<Superhero> findAll() {
-        return null;
+        return this.superheroRepository.findAll();
     }
 
     @Override

@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.Period;
 
 @Data
 @NoArgsConstructor
@@ -20,4 +22,14 @@ public class Superhero {
 
     @Column(name = "super_pouvoir")
     private String superPouvoir;
+
+    @Column(name= "date_naissance")
+    private LocalDate dateNaissance;
+
+    @Transient
+    private Integer age;
+
+    public Integer getAge(){
+        return Period.between(this.getDateNaissance(), LocalDate.now()).getYears();
+    }
 }
